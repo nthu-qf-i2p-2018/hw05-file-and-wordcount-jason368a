@@ -22,17 +22,18 @@ word_Counter = Counter(all_words)
 word_Counter.most_common()
 
 
-# In[35]:
+# In[37]:
 
 
 import csv
 csv_file = open('word_count.csv', 'w')
 
 with open('word_Counter.csv', 'w') as csv_file:
-    writer = csv.writer
+    writer = csv.writer(csv_file)
     writer.writerow(['word', 'count'])
+    # writer.writerows(word_Counter.most_common())
     for word, count in word_Counter.most_common():
-        writer.writerows([word, count])
+        writer.writerow([word, count])
 
 
 # In[24]:
